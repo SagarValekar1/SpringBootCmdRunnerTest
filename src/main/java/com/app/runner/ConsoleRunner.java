@@ -1,19 +1,18 @@
 package com.app.runner;
 
-import java.util.Map;
+import java.util.Arrays;
 import java.util.Set;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 @Component
-public class ConsoleRunner implements ApplicationRunner {
-	private Set<String> profiles;
-@Override
-public void run(ApplicationArguments args) throws Exception {
+public class ConsoleRunner implements CommandLineRunner {
 	
-	profiles=args.getOptionNames();
-	System.out.println(profiles);
-	System.out.println(args.getOptionValues("profiles"));
+@Override
+public void run(String... args) throws Exception {
+	
+	System.out.println("from runner");
+	System.out.println(args);
+	System.out.println(Arrays.asList(args));
 }
 }
